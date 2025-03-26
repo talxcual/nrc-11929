@@ -1,0 +1,96 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+/**
+ *
+ * @author AlumnoSC
+ */
+import java.util.Scanner;
+
+public class Ventas {
+
+    public String local;
+    public String producto;
+    public int cantidad;
+
+    public Ventas(String local, String producto, int cantidad) {
+        this.local = local;
+        this.producto = producto;
+        this.cantidad = cantidad;
+    }
+
+    public String getLocal() {
+        return local;
+    }
+
+    public void setLocal(String local) {
+        this.local = local;
+    }
+
+    public String getProducto() {
+        return producto;
+    }
+
+    public void setProducto(String producto) {
+        this.producto = producto;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String toString() {
+        return "{" + local + "," + producto + "," + cantidad + "}";
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Ventas[][] arr = new Ventas[3][3]; // Matriz de 3x3
+        int c;
+        String a, b;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.println("Ingrese local: ");
+                a = sc.next();
+                System.out.println("Ingrese producto: ");
+                b = sc.next();
+                System.out.println("Ingrese cantidad: ");
+                c = sc.nextInt();
+                arr[i][j] = new Ventas(a, b, c);
+            }
+        }
+
+        int sumau = 0;
+        String productov = "";
+        int maxCantidad = 0;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (arr[i][j].getCantidad() > maxCantidad) {
+                    maxCantidad = arr[i][j].getCantidad();
+                    sumau = maxCantidad;
+                    productov = arr[i][j].getProducto();
+                }
+            }
+        }
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.println("Ventas = " + arr[i][j]);
+            }
+        }
+
+        System.out.println("producto mas vendido = " + productov);
+        System.out.println("cantidad vendida del producto mas vendido = " + sumau);
+    }
+}
+
+    
+}
